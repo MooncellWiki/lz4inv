@@ -16,7 +16,7 @@ build-backend = "maturin"
 tests = ["pytest"]
 
 [tool.poetry]
-packages = [{ include = "lz4inv", from = "python/lz4inv" }]
+packages = [{ include = "lz4inv", from = "python" }]
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.11.4"
