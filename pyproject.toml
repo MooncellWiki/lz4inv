@@ -1,20 +1,27 @@
-[build-system]
-requires = ["maturin>=1.8,<2.0"]
-build-backend = "maturin"
-
 [project]
 name = "lz4inv"
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dynamic = ["version"]
+version = "0.0.0"
+
+[build-system]
+requires = ["maturin>=1.8,<2.0"]
+build-backend = "maturin"
+
 [project.optional-dependencies]
-tests = [
-    "pytest",
-]
+tests = ["pytest"]
+
+[tool.poetry]
+packages = [{ include = "lz4inv", from = "python/lz4inv" }]
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.11.4"
+maturin = "^1.8.3"
+
 [tool.maturin]
 python-source = "python"
 features = ["pyo3/extension-module"]
