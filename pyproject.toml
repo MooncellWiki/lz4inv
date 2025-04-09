@@ -1,12 +1,20 @@
 [project]
 name = "lz4inv"
+version = "0.1.1"
+description = "A Rust-backed Python module for decompressing data compressed with the modified LZ4 algorithm for an anime game."
 requires-python = ">=3.9"
+license = { text = "MIT" }
+readme = "README.md"
+keywords = ["lz4", "lz4inv", "compression", "decompression"]
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
-version = "0.1.1"
+
+[project.urls]
+Homepage = "https://github.com/MooncellWiki/lz4inv"
+Repository = "https://github.com/MooncellWiki/lz4inv"
 
 [project.optional-dependencies]
 tests = ["pytest"]
