@@ -3,6 +3,8 @@ name = "lz4inv"
 version = "0.1.1"
 description = "A Rust-backed Python module for decompressing data compressed with the modified LZ4 algorithm for an anime game."
 requires-python = ">=3.9"
+authors = [{ name = "daflyinbed", email = "1677759063@qq.com" }]
+maintainers = [{ name = "StarHeartHunt", email = "starheart233@gmail.com" }]
 license = { text = "MIT" }
 readme = "README.md"
 keywords = ["lz4", "lz4inv", "compression", "decompression"]
