@@ -1,16 +1,12 @@
 [project]
 name = "lz4inv"
-requires-python = ">=3.11"
+requires-python = ">=3.9"
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
-version = "0.0.0"
-
-[build-system]
-requires = ["maturin>=1.8,<2.0"]
-build-backend = "maturin"
+version = "0.1.0"
 
 [project.optional-dependencies]
 tests = ["pytest"]
@@ -25,3 +21,7 @@ maturin = "^1.8.3"
 [tool.maturin]
 python-source = "python"
 features = ["pyo3/extension-module"]
+
+[build-system]
+requires = ["maturin>=1.8,<2.0"]
+build-backend = "maturin"
