@@ -139,17 +139,25 @@ fn get_length(mut length: usize, src: &[u8], src_pos: &mut usize) -> usize {
     length
 }
 
-/// Decompresses LZ4 compressed data
-#[pyfunction]
-fn decompress(compressed: &[u8], decompressed_size: usize) -> Result<Vec<u8>, DecompressError> {
-    let mut decompressed = vec![0u8; decompressed_size];
-    decompress_impl(compressed, &mut decompressed)?;
-    Ok(decompressed)
-}
-
 /// A Python module implemented in Rust.
 #[pymodule]
-fn lz4inv(m: &Bound<'_, PyModule>) -> PyResult<()> {
-    m.add_function(wrap_pyfunction!(decompress, m)?)?;
-    Ok(())
+mod lz4inv {
+    use pyo3::types::PyBytes;
+
+    use super::*;
+
+    #[pyfunction]
+    /// Decompresses LZ4 compressed data
+    fn decompress(
+        py: pyo3::Python<'_>,
+        compressed: pyo3::Py<pyo3::types::PyBytes>,
+        decompressed_size: usize,
+    ) -> PyResult<pyo3::Bound<pyo3::types::PyBytes>> {
+        let decompressed = PyBytes::new_with(py, decompressed_size, |decompressed| {
+            decompress_impl(compressed.as_bytes(py), decompressed)?;
+            Ok(())
+        });
+
+        decompressed
+    }
 }
