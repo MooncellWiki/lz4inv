@@ -1,6 +1,6 @@
 [project]
 name = "lz4inv"
-version = "0.1.2"
+version = "0.2.0"
 description = "A Rust-backed Python module for decompressing data compressed with the modified LZ4 algorithm for an anime game."
 requires-python = ">=3.9"
 authors = [{ name = "daflyinbed", email = "1677759063@qq.com" }]
