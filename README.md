@@ -33,7 +33,21 @@ Lz4Inv is a Rust-backed Python module for decompressing data compressed with the
 
 ## Usage
 
-Import the module in your Python code to decompress LZ4 compressed data.
+Import the module in your Python code to decompress LZ4 compressed data.  
+The function accepts any object implementing Buffer protocol (for example `bytes`, `bytearray`, `memoryview`) as input for the compressed data.
+
+```python
+import lz4inv
+
+with open("compressed_data.bin", "rb") as f:
+    compressed_data = f.read()
+
+decompressed_size = 131072
+decompressed_data = lz4inv.decompress_buffer(compressed_data, decompressed_size)
+```
+
+For Python versions before 3.11, use `decompress()` as the Buffer protocol doesn't have a stable ABI in those versions.  
+Note that `decompress()` specifically requires a `bytes` object as input.
 
 ```python
 import lz4inv
