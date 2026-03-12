@@ -194,7 +194,7 @@ mod lz4inv {
             decompress_impl(compressed, decompressed)?;
             Ok(())
         });
-        Python::with_gil(|_| unsafe { ffi::PyBuffer_Release(&mut buf) });
+        unsafe { ffi::PyBuffer_Release(&mut buf) };
         result
     }
 }
