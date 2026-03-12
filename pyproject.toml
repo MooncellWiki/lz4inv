@@ -2,12 +2,17 @@
 name = "lz4inv"
 version = "0.2.0"
 description = "A Rust-backed Python module for decompressing data compressed with the modified LZ4 algorithm for an anime game."
-requires-python = ">=3.9"
 authors = [{ name = "daflyinbed", email = "1677759063@qq.com" }]
 maintainers = [{ name = "StarHeartHunt", email = "starheart233@gmail.com" }]
-license = { text = "MIT" }
+requires-python = ">=3.10"
+license = "MIT"
 readme = "README.md"
-keywords = ["lz4", "lz4inv", "compression", "decompression"]
+keywords = [
+    "lz4",
+    "lz4inv",
+    "compression",
+    "decompression",
+]
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
@@ -18,15 +23,11 @@ classifiers = [
 Homepage = "https://github.com/MooncellWiki/lz4inv"
 Repository = "https://github.com/MooncellWiki/lz4inv"
 
-[project.optional-dependencies]
-tests = ["pytest"]
-
-[tool.poetry]
-packages = [{ include = "lz4inv", from = "python" }]
-
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.11.4"
-maturin = "^1.8.3"
+[dependency-groups]
+dev = [
+    "ruff>=0.15.0,<0.16",
+    "maturin>=1.8.3,<2",
+]
 
 [tool.maturin]
 python-source = "python"
