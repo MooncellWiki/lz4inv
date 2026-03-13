@@ -154,7 +154,7 @@ mod lz4inv {
         py: pyo3::Python<'_>,
         compressed: pyo3::Py<pyo3::types::PyBytes>,
         decompressed_size: usize,
-    ) -> PyResult<pyo3::Bound<pyo3::types::PyBytes>> {
+    ) -> PyResult<pyo3::Bound<'_, pyo3::types::PyBytes>> {
         PyBytes::new_with(py, decompressed_size, |decompressed| {
             decompress_impl(compressed.as_bytes(py), decompressed)?;
             Ok(())
