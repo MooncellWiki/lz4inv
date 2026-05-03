@@ -139,7 +139,7 @@ fn get_length(mut length: usize, src: &[u8], src_pos: &mut usize) -> usize {
     length
 }
 
-/// A Python module implemented in Rust.
+/// LZ4 inverse decompression for an anime game's modified LZ4 format.
 #[pymodule]
 mod lz4inv {
     use std::mem;
@@ -162,6 +162,8 @@ mod lz4inv {
     }
 
     #[pyfunction]
+    /// Decompresses LZ4 compressed data from any buffer-protocol object
+    /// (bytes, bytearray, memoryview).
     fn decompress_buffer<'py>(
         py: pyo3::Python<'py>,
         compressed: &Bound<'py, PyAny>,
